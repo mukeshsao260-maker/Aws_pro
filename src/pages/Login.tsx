@@ -228,6 +228,7 @@ export const Login: React.FC<LoginProps> = ({ onShowToast }) => {
 
           {/* Login Card */}
           <div
+            className="login-card-container"
             style={{
               backgroundColor: 'var(--bg-secondary)',
               border: '1px solid var(--border-strong)',
@@ -237,6 +238,7 @@ export const Login: React.FC<LoginProps> = ({ onShowToast }) => {
           >
             {/* Role Tabs */}
             <div
+              className="login-tab-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',

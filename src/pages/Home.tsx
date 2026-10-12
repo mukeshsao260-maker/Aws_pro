@@ -182,7 +182,7 @@ export const Home: React.FC = () => {
 
               {/* Event Metadata Ticket Block */}
               <div
-                className="hero-stagger-fade"
+                className="hero-stagger-fade hero-ticket-grid"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
@@ -579,6 +579,7 @@ export const Home: React.FC = () => {
       >
         <div className="container">
           <div
+            className="cta-banner-box"
             style={{
               border: '2px solid var(--border-strong)',
               backgroundColor: 'var(--bg-primary)',

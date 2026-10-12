@@ -1343,8 +1343,13 @@ export const Admin: React.FC<AdminProps> = ({ onShowToast }) => {
                   )}
                 </div>
               ) : (
-                <div style={{ overflowX: 'auto' }}>
-                  <table
+                <>
+                  <div className="mobile-scroll-hint">
+                    <span>↔ SWIPE HORIZONTALLY TO VIEW ALL ATTENDEE COLUMNS</span>
+                    <span>EXCEL TABLE</span>
+                  </div>
+                  <div className="table-responsive-wrapper" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+                    <table
                     style={{
                       width: '100%',
                       borderCollapse: 'collapse',
@@ -1460,7 +1465,8 @@ export const Admin: React.FC<AdminProps> = ({ onShowToast }) => {
                     </tbody>
                   </table>
                 </div>
-              )}
+              </>
+            )}
             </div>
 
             {/* LIVE CONTACT INQUIRIES EXCEL WORKBOOK (SHEET 2 VIEW) */}
@@ -1702,8 +1708,13 @@ export const Admin: React.FC<AdminProps> = ({ onShowToast }) => {
                   </button>
                 </div>
               ) : (
-                <div style={{ overflowX: 'auto' }}>
-                  <table
+                <>
+                  <div className="mobile-scroll-hint">
+                    <span>↔ SWIPE HORIZONTALLY TO VIEW ALL INQUIRY COLUMNS</span>
+                    <span>INQUIRIES SHEET</span>
+                  </div>
+                  <div className="table-responsive-wrapper" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+                    <table
                     style={{
                       width: '100%',
                       borderCollapse: 'collapse',
@@ -1865,7 +1876,8 @@ export const Admin: React.FC<AdminProps> = ({ onShowToast }) => {
                     </tbody>
                   </table>
                 </div>
-              )}
+              </>
+            )}
             </div>
           </div>
         )}

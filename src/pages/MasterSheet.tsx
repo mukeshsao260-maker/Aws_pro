@@ -1266,8 +1266,14 @@ export const MasterSheet: React.FC<MasterSheetProps> = ({ onShowToast, initialSh
         </div>
       </div>
 
+      {/* Mobile Swipe Guidance Banner */}
+      <div className="mobile-scroll-hint" style={{ margin: '6px 12px 0' }}>
+        <span>↔ SWIPE HORIZONTALLY TO VIEW ALL COLUMNS (A - H)</span>
+        <span>SHEET {activeSheet === 'registrations' ? '1: REGISTRATIONS' : '2: INQUIRIES'}</span>
+      </div>
+
       {/* 4. MAIN EXCEL WORKBOOK GRID TABLE */}
-      <div style={{ flex: 1, overflow: 'auto', backgroundColor: '#0d1117' }}>
+      <div className="excel-table-scroll-container" style={{ flex: 1, overflow: 'auto', WebkitOverflowScrolling: 'touch', backgroundColor: '#0d1117' }}>
         {activeSheet === 'registrations' ? (
           /* REGISTRATIONS TABLE VIEW */
           <table

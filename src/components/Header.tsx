@@ -89,6 +89,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
             {/* Vertical Divider */}
             <div
+              className="header-brand-tagline"
               style={{
                 width: '1px',
                 height: '28px',
@@ -98,6 +99,7 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
             {/* Brand text */}
             <div
+              className="header-brand-tagline"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.6875rem',
@@ -358,32 +360,98 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               <span style={{ color: 'var(--text-dim)', fontSize: '0.75rem' }}>[{link.code}]</span>
             </NavLink>
           ))}
-          {currentUser?.role === 'admin' ? (
-            <Link
-              to="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-noise-outline"
-              style={{ width: '100%', marginTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+          {/* Mobile User Status / Login */}
+          {currentUser ? (
+            <div
+              style={{
+                padding: '0.875rem 1rem',
+                backgroundColor: 'var(--bg-secondary)',
+                border: '1px solid var(--border-color)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '10px'
+              }}
             >
-              <ShieldCheck size={16} />
-              <span>ORGANIZER CONSOLE [EXCEL]</span>
-            </Link>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <User size={16} style={{ color: 'var(--accent-toxic)' }} />
+                <div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                    {currentUser.name}
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.625rem', color: 'var(--text-muted)' }}>
+                    {currentUser.role === 'admin' ? 'ORGANIZER ADMIN' : currentUser.email}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  logoutUser();
+                  setMobileMenuOpen(false);
+                }}
+                className="btn-noise-outline"
+                style={{
+                  padding: '5px 10px',
+                  fontSize: '0.6875rem',
+                  color: 'var(--accent-red)',
+                  borderColor: 'var(--accent-red)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px'
+                }}
+              >
+                <LogOut size={12} />
+                <span>LOGOUT</span>
+              </button>
+            </div>
           ) : (
             <Link
               to="/login"
               onClick={() => setMobileMenuOpen(false)}
               className="btn-noise-outline"
-              style={{ width: '100%', marginTop: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+              style={{
+                width: '100%',
+                marginTop: '0.25rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                padding: '0.875rem'
+              }}
             >
               <Lock size={15} />
-              <span>SIGN IN / ADMIN LOGIN</span>
+              <span>SIGN IN / LOGIN</span>
             </Link>
           )}
+
+          {currentUser?.role === 'admin' && (
+            <Link
+              to="/admin"
+              onClick={() => setMobileMenuOpen(false)}
+              className="btn-noise-outline"
+              style={{
+                width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                color: 'var(--accent-toxic)',
+                borderColor: 'var(--accent-toxic)',
+                padding: '0.875rem'
+              }}
+            >
+              <ShieldCheck size={16} />
+              <span>ORGANIZER CONSOLE [EXCEL]</span>
+            </Link>
+          )}
+
           <Link
             to="/register"
             onClick={() => setMobileMenuOpen(false)}
             className="btn-noise-primary"
-            style={{ width: '100%', marginTop: '0.5rem' }}
+            style={{ width: '100%', padding: '0.875rem', textAlign: 'center' }}
           >
             RESERVE MY SEAT →
           </Link>
