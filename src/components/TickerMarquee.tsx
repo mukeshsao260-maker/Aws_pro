@@ -14,7 +14,7 @@ export const TickerMarquee: React.FC<TickerMarqueeProps> = ({
   const defaultItems = [
     'AWS STUDENT BUILDER COMMUNITY DAY',
     'RUNGTA UNIVERSITY',
-    '18 OCT 2026',
+    '21 OCT 2026',
     'CLOUD · WEB · AI',
     'TURN CURIOSITY INTO CODE',
     'HANDS-ON WORKSHOPS',

@@ -19,7 +19,7 @@ export const EVENT_INFO: EventInfo = {
   campus: "Rungta University",
   city: "Bhilai",
   state: "Chhattisgarh",
-  date: "18 OCT 2026",
+  date: "21 OCT 2026",
   time: "10:00 AM — 5:00 PM IST",
   venue: "Rungta Educational Complex, Kurud Road, Kohka, Bhilai, Chhattisgarh",
   coordinates: "21.1904° N, 81.2849° E",

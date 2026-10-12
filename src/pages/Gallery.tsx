@@ -225,7 +225,7 @@ export const Gallery: React.FC = () => {
             </div>
 
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 700, borderTop: '1px solid currentColor', paddingTop: '0.75rem' }}>
-              18 OCTOBER 2026 // BHILAI, CG
+              21 OCTOBER 2026 // BHILAI, CG
             </div>
           </div>
         </div>

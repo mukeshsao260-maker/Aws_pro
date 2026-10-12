@@ -117,7 +117,7 @@ export const About: React.FC = () => {
               }}
             >
               <span>FIG_02: EXPERIENTIAL LEARNING LAB</span>
-              <span>CHHATTISGARH · 18 OCT 2026</span>
+              <span>CHHATTISGARH · 21 OCT 2026</span>
             </div>
           </div>
 
@@ -260,7 +260,7 @@ export const About: React.FC = () => {
               READY TO BUILD AT RUNGTA UNIVERSITY?
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9375rem' }}>
-              Join 100 student builders on 18 OCT 2026 for a day of hands-on cloud development.
+              Join 100 student builders on 21 OCT 2026 for a day of hands-on cloud development.
             </p>
           </div>
 

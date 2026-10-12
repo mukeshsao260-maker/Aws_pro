@@ -29,7 +29,7 @@ export const Schedule: React.FC = () => {
           category="EVENT SCHEDULE"
           title="A DAY DESIGNED AROUND"
           highlightWord="MOMENTUM."
-          metaRight="DATE: 18 OCT 2026 // TIMEZONE: IST"
+          metaRight="DATE: 21 OCT 2026 // TIMEZONE: IST"
           description="Every hour is calibrated for active progress. Move from check-in and environment setup directly into hands-on cloud provisioning, generative AI labs, and live prototype demos."
         />
 
@@ -231,7 +231,7 @@ export const Schedule: React.FC = () => {
           </div>
 
           <Link to="/register" className="btn-noise-primary" data-cursor="RESERVE">
-            SAVE YOUR SEAT FOR 18 OCT →
+            SAVE YOUR SEAT FOR 21 OCT →
           </Link>
         </div>
       </div>
