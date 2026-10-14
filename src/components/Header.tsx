@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { NAV_LINKS, REGISTRATION_URL } from '../data/eventData';
-import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import awsLogo from '../assets/images/aws_logo.jpg';
 
-interface HeaderProps {
-  theme: 'dark' | 'light';
-  toggleTheme: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
+export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -167,30 +162,9 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               REGISTER
               <ArrowUpRight size={14} />
             </a>
-
-
-
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              title={`Switch to ${theme === 'dark' ? 'Light (Paper)' : 'Dark (Ink)'} Mode`}
-              style={{
-                padding: '8px',
-                border: '1px solid var(--border-color)',
-                backgroundColor: 'var(--bg-secondary)',
-                color: 'var(--text-primary)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all var(--transition-fast)'
-              }}
-              data-cursor="THEME"
-            >
-              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
-            </button>
           </nav>
 
-          {/* Mobile Menu Action & Toggle */}
+          {/* Mobile Menu Action */}
           <div
             style={{
               display: 'flex',
@@ -198,20 +172,6 @@ export const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               gap: '0.75rem'
             }}
           >
-            <button
-              onClick={toggleTheme}
-              className="mobile-menu-btn"
-              style={{
-                display: 'none',
-                padding: '8px',
-                border: '1px solid var(--border-color)',
-                backgroundColor: 'var(--bg-secondary)',
-                color: 'var(--text-primary)'
-              }}
-              aria-label="Toggle Theme"
-            >
-              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
-            </button>
 
             <button
               className="mobile-menu-btn"

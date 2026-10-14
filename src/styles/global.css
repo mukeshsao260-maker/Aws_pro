@@ -48,10 +48,6 @@ body::before {
   opacity: 0.15;
 }
 
-[data-theme="light"] body::before {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 0);
-  opacity: 0.18;
-}
 
 /* Base Links & Buttons */
 a {
@@ -81,10 +77,6 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 0 0 2px var(--color-primary-transparent, rgba(132, 16, 157, 0.25));
 }
 
-[data-theme="light"] input::placeholder,
-[data-theme="light"] textarea::placeholder {
-  color: #7C7971;
-}
 
 /* ========================================================
    TYPOGRAPHY HIERARCHY
@@ -233,9 +225,6 @@ h1, h2, h3, h4, .font-display {
   box-shadow: 4px 4px 0px 0px var(--color-primary-dark, #610B74);
 }
 
-[data-theme="light"] .btn-noise-primary:hover {
-  box-shadow: 4px 4px 0px 0px var(--accent-red, #EC3D31);
-}
 
 .btn-noise-outline {
   display: inline-flex;
@@ -257,10 +246,6 @@ h1, h2, h3, h4, .font-display {
   white-space: nowrap;
 }
 
-[data-theme="light"] .btn-noise-outline {
-  color: var(--text-primary);
-  border-color: var(--border-strong);
-}
 
 .btn-noise-outline:hover {
   border-color: var(--color-primary-light, #B42DD2);
@@ -270,12 +255,6 @@ h1, h2, h3, h4, .font-display {
   box-shadow: 4px 4px 0px 0px var(--color-primary, #84109D);
 }
 
-[data-theme="light"] .btn-noise-outline:hover {
-  border-color: var(--text-primary);
-  background-color: var(--bg-elevated);
-  color: var(--text-primary);
-  box-shadow: 4px 4px 0px 0px var(--text-primary);
-}
 
 /* Toast Notification */
 .noise-toast {
@@ -324,12 +303,4 @@ h1, h2, h3, h4, .font-display {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary, #84109D);
-}
-
-[data-theme="light"] ::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-}
-
-[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
 }

@@ -16,27 +16,16 @@ import { NotFound } from './pages/NotFound';
 import { Check, AlertCircle, X } from 'lucide-react';
 
 export const App: React.FC = () => {
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('aws_theme');
-      if (saved === 'light' || saved === 'dark') return saved;
-    }
-    return 'dark';
-  });
   const [toast, setToast] = useState<{ message: string; isError: boolean } | null>(null);
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-theme', 'dark');
     try {
-      localStorage.setItem('aws_theme', theme);
+      localStorage.removeItem('aws_theme');
     } catch {
       // ignore storage errors
     }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+  }, []);
 
   const showToast = (message: string, isError: boolean = false) => {
     setToast({ message, isError });
@@ -56,7 +45,7 @@ export const App: React.FC = () => {
         <ScrollToTop />
         <ScrollProgress />
 
-        <Header theme={theme} toggleTheme={toggleTheme} />
+        <Header />
 
         <main style={{ flex: 1 }}>
           <PageTransition>
