@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, Lock } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { NAV_LINKS, EVENT_INFO } from '../data/eventData';
+import awsLogo from '../assets/images/aws_logo.jpg';
 
 export const Footer: React.FC = () => {
   const scrollToTop = (e: React.MouseEvent) => {
@@ -44,19 +45,32 @@ export const Footer: React.FC = () => {
               }}
               data-cursor="TOP"
             >
+              {/* AWS Logo */}
               <div
                 style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '1.75rem',
-                  fontWeight: 900,
-                  letterSpacing: '-0.06em',
-                  color: 'var(--text-primary)',
-                  padding: '2px 7px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '54px',
+                  height: '38px',
+                  padding: '2px 4px',
+                  backgroundColor: '#ffffff',
                   border: '1.5px solid var(--border-strong)',
-                  backgroundColor: 'var(--bg-secondary)'
+                  boxShadow: '2px 2px 0px 0px var(--border-strong)',
+                  overflow: 'hidden',
+                  flexShrink: 0
                 }}
               >
-                aws
+                <img
+                  src={awsLogo}
+                  alt="AWS Logo"
+                  style={{
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    objectFit: 'contain',
+                    display: 'block'
+                  }}
+                />
               </div>
 
               <div style={{ width: '1px', height: '28px', backgroundColor: 'var(--border-strong)' }} />
@@ -179,23 +193,6 @@ export const Footer: React.FC = () => {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span>NO-CORS SHEETS: ACTIVE</span>
-            <Link
-              to="/login"
-              style={{
-                color: 'var(--text-muted)',
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-                transition: 'color var(--transition-fast)'
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-toxic)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
-              title="Restricted Admin Console"
-            >
-              <Lock size={11} />
-              <span>[ADMIN CONSOLE]</span>
-            </Link>
           </div>
         </div>
       </div>

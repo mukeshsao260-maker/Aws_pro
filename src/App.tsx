@@ -9,12 +9,8 @@ import { Footer } from './components/Footer';
 // Pages
 import { Home } from './pages/Home';
 import { About } from './pages/About';
-import { Register } from './pages/Register';
 import { FAQ } from './pages/FAQ';
 import { Contact } from './pages/Contact';
-import { Admin } from './pages/Admin';
-import { MasterSheet } from './pages/MasterSheet';
-import { Login } from './pages/Login';
 import { NotFound } from './pages/NotFound';
 
 import { Check, AlertCircle, X } from 'lucide-react';
@@ -69,13 +65,11 @@ export const App: React.FC = () => {
               <Route path="/about" element={<About />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/contact" element={<Contact onShowToast={showToast} />} />
-              <Route path="/register" element={<Register onShowToast={showToast} />} />
-              <Route path="/admin" element={<Admin onShowToast={showToast} />} />
-              <Route path="/admin/sheet" element={<MasterSheet onShowToast={showToast} />} />
-              <Route path="/admin/inquiries" element={<MasterSheet onShowToast={showToast} initialSheet="inquiries" />} />
-              <Route path="/admin/excel" element={<Navigate to="/admin/sheet" replace />} />
-              <Route path="/login" element={<Login onShowToast={showToast} />} />
-              {/* Redirects for removed sections */}
+              <Route path="/register" element={<Navigate to="/" replace />} />
+              {/* Redirect removed admin & login portals to home */}
+              <Route path="/admin" element={<Navigate to="/" replace />} />
+              <Route path="/admin/*" element={<Navigate to="/" replace />} />
+              <Route path="/login" element={<Navigate to="/" replace />} />
               <Route path="/schedule" element={<Navigate to="/" replace />} />
               <Route path="/speakers" element={<Navigate to="/" replace />} />
               <Route path="/gallery" element={<Navigate to="/" replace />} />

@@ -23,7 +23,7 @@ export const Schedule: React.FC = () => {
             <span className="section-num">[ 02 ]</span>
             <span>// SCHEDULE</span>
           </div>
-          <div>DATE: 21 OCT 2026 // TIMEZONE: IST (UTC+5:30)</div>
+          <div>DATE: 18 OCT 2026 // TIMEZONE: IST (UTC+5:30)</div>
         </div>
 
         {/* Section Headline */}

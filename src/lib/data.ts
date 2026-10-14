@@ -14,7 +14,7 @@ export const EVENT_DATA: EventMeta = {
   subTitle: "Community Day",
   location: "Rungta University",
   state: "Chhattisgarh",
-  date: "21 OCT 2026",
+  date: "18 OCT 2026",
   time: "10 AM — 5 PM",
   venue: "Rungta University Campus",
   lead: "A one-day student builder experience for turning ideas into real projects with cloud, AI and modern web technologies."

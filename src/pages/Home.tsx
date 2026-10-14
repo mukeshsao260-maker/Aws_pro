@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Terminal } from '../components/Terminal';
 import { TickerMarquee } from '../components/TickerMarquee';
-import { EVENT_INFO, STATS, LEARNING_TRACKS, FAQ_LIST } from '../data/eventData';
+import { EVENT_INFO, STATS, LEARNING_TRACKS, FAQ_LIST, REGISTRATION_URL } from '../data/eventData';
 import { animateHeroEntrance, setupScrollStagger } from '../lib/animations';
 import { ArrowRight, Calendar, Clock, MapPin, Terminal as TerminalIcon } from 'lucide-react';
 import heroImg from '../assets/images/aws_cloud_builders.jpg';
@@ -169,10 +169,17 @@ export const Home: React.FC = () => {
                   marginBottom: '3rem'
                 }}
               >
-                <Link to="/register" className="btn-noise-primary" data-cursor="RESERVE">
+                <a
+                  href={REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-noise-primary"
+                  data-cursor="RESERVE"
+                  style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                >
                   RESERVE MY SEAT
                   <ArrowRight size={16} />
-                </Link>
+                </a>
 
                 <Link to="/about" className="btn-noise-outline" data-cursor="ABOUT">
                   EXPLORE ABOUT & DETAILS
@@ -182,7 +189,7 @@ export const Home: React.FC = () => {
 
               {/* Event Metadata Ticket Block */}
               <div
-                className="hero-stagger-fade hero-ticket-grid"
+                className="hero-stagger-fade"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
@@ -579,7 +586,6 @@ export const Home: React.FC = () => {
       >
         <div className="container">
           <div
-            className="cta-banner-box"
             style={{
               border: '2px solid var(--border-strong)',
               backgroundColor: 'var(--bg-primary)',
@@ -615,10 +621,17 @@ export const Home: React.FC = () => {
               Complimentary registration for all college students. Free cloud lab environment, mentored development sprints, and verified event kit.
             </p>
 
-            <Link to="/register" className="btn-noise-primary" style={{ padding: '1.2rem 2.5rem', fontSize: '1rem' }} data-cursor="REGISTER NOW">
+            <a
+              href={REGISTRATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-noise-primary"
+              style={{ padding: '1.2rem 2.5rem', fontSize: '1rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              data-cursor="REGISTER NOW"
+            >
               OPEN REGISTRATION PORTAL
               <ArrowRight size={18} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

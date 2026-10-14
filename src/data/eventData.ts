@@ -19,7 +19,7 @@ export const EVENT_INFO: EventInfo = {
   campus: "Rungta University",
   city: "Bhilai",
   state: "Chhattisgarh",
-  date: "21 OCT 2026",
+  date: "18 OCT 2026",
   time: "10:00 AM — 5:00 PM IST",
   venue: "Rungta Educational Complex, Kurud Road, Kohka, Bhilai, Chhattisgarh",
   coordinates: "21.1904° N, 81.2849° E",
@@ -28,12 +28,15 @@ export const EVENT_INFO: EventInfo = {
   seatCapacity: 100
 };
 
+// External Registration URL (Replace this with the actual URL provided by user)
+export const REGISTRATION_URL = "https://example.com/register";
+
 export const NAV_LINKS = [
   { label: "Home", path: "/", code: "00" },
   { label: "About", path: "/about", code: "01" },
   { label: "FAQ", path: "/faq", code: "02" },
   { label: "Contact", path: "/contact", code: "03" },
-  { label: "Register", path: "/register", code: "04", isCta: true }
+  { label: "Register", path: REGISTRATION_URL, code: "04", isCta: true }
 ];
 
 export const STATS = [

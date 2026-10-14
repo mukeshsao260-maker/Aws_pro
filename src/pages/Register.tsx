@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { SectionHeading } from '../components/SectionHeading';
 import { RegistrationForm } from '../components/RegistrationForm';
 import { EVENT_INFO } from '../data/eventData';
 import { getRemainingSeats, getUserConfirmedRegistration } from '../lib/registration';
 import { getAuthUser } from '../lib/auth';
-import { Laptop, Mail, IdCard, Lock, ArrowRight } from 'lucide-react';
+import { Laptop, Mail, IdCard } from 'lucide-react';
 
 interface RegisterProps {
   onShowToast: (message: string, isError?: boolean) => void;
@@ -184,39 +183,7 @@ export const Register: React.FC<RegisterProps> = ({ onShowToast }) => {
               <div>EVENT TIMING: 10:00 AM — 5:00 PM (CHECK-IN AT 10:00 AM)</div>
             </div>
 
-            {/* Organizer Access Card */}
-            <div
-              style={{
-                border: '1px solid var(--border-strong)',
-                backgroundColor: 'var(--bg-secondary)',
-                padding: '1.25rem 1.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.75rem',
-                boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.5)'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)' }}>
-                <Lock size={14} style={{ color: 'var(--accent-toxic)' }} />
-                <span>Event Organizer / Admin?</span>
-              </div>
-              <Link
-                to="/login"
-                style={{
-                  color: 'var(--accent-toxic)',
-                  fontWeight: 700,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  textDecoration: 'none'
-                }}
-              >
-                <span>ADMIN LOGIN</span>
-                <ArrowRight size={13} />
-              </Link>
-            </div>
+
           </div>
 
           {/* Right Column: Reusable Registration Form */}

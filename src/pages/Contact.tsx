@@ -1,54 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SectionHeading } from '../components/SectionHeading';
 import { EVENT_INFO } from '../data/eventData';
-import { saveInquiryRecord, StoredInquiryRecord } from '../lib/inquiries';
-import { MapPin, Send, CheckCircle2, ArrowRight, RefreshCw } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { MapPin, Mail, Phone, UserCheck, MessageSquare, Info, Terminal, Cpu, Users, Clock } from 'lucide-react';
 
 interface ContactProps {
   onShowToast?: (message: string, isError?: boolean) => void;
 }
 
-export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
-  const [inquirySent, setInquirySent] = useState(false);
-  const [submittedInquiry, setSubmittedInquiry] = useState<StoredInquiryRecord | null>(null);
-  const [contactForm, setContactForm] = useState({
-    name: '',
-    email: '',
-    topic: 'General Event Inquiry',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!contactForm.name.trim() || !contactForm.email.trim() || !contactForm.message.trim()) {
-      onShowToast?.('Please fill out all fields before sending.', true);
-      return;
-    }
-
-    const saved = saveInquiryRecord({
-      name: contactForm.name,
-      email: contactForm.email,
-      topic: contactForm.topic,
-      message: contactForm.message
-    });
-
-    setSubmittedInquiry(saved);
-    setInquirySent(true);
-    onShowToast?.(`✓ Inquiry recorded in organizer master database (${saved.id})!`, false);
-  };
-
-  const handleResetForm = () => {
-    setContactForm({
-      name: '',
-      email: '',
-      topic: 'General Event Inquiry',
-      message: ''
-    });
-    setSubmittedInquiry(null);
-    setInquirySent(false);
-  };
-
+export const Contact: React.FC<ContactProps> = () => {
   return (
     <div className="contact-page" style={{ paddingTop: 'clamp(2.5rem, 5vw, 4rem)', paddingBottom: 'var(--section-pad-y)' }}>
       <div className="container">
@@ -145,13 +104,16 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
             </div>
           </div>
 
-          {/* Right Column: Quick Contact Dispatch Form */}
+          {/* Right Column: Official Contact & Liaison Directory */}
           <div
             style={{
               backgroundColor: 'var(--bg-secondary)',
               border: '1px solid var(--border-strong)',
               boxShadow: '8px 8px 0px 0px rgba(0, 0, 0, 0.65)',
-              padding: 'clamp(1.5rem, 3.5vw, 2.5rem)'
+              padding: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.5rem'
             }}
           >
             <div
@@ -160,222 +122,212 @@ export const Contact: React.FC<ContactProps> = ({ onShowToast }) => {
                 fontSize: '0.6875rem',
                 color: 'var(--text-muted)',
                 paddingBottom: '1rem',
-                marginBottom: '1.5rem',
                 borderBottom: '1px solid var(--border-color)',
                 display: 'flex',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                alignItems: 'center'
               }}
             >
-              <span>DISPATCH_LOG // VOLUNTEER_INQUIRY</span>
-              <span className="zine-tag zine-tag-toxic">STORED IN MASTER EXCEL</span>
+              <span>COMMUNICATION_DESK // DIRECT_CHANNELS</span>
+              <span className="zine-tag zine-tag-toxic">LIVE LIAISON</span>
             </div>
 
-            {inquirySent && submittedInquiry ? (
-              <div
-                style={{
-                  padding: '1.75rem',
-                  backgroundColor: 'var(--bg-primary)',
-                  border: '1px solid var(--accent-toxic)',
-                  fontFamily: 'var(--font-mono)',
-                  animation: 'fadeIn 0.3s ease-out'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>
-                  <CheckCircle2 size={24} style={{ color: 'var(--accent-toxic)', flexShrink: 0 }} />
-                  <div>
-                    <h4 style={{ color: 'var(--text-primary)', fontSize: '1.1rem', margin: 0, fontWeight: 800 }}>
-                      INQUIRY RECORDED & DISPATCHED
-                    </h4>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--accent-toxic)' }}>
-                      REF_ID: {submittedInquiry.id}
-                    </span>
-                  </div>
+            {/* Email Channels Card */}
+            <div
+              style={{
+                backgroundColor: 'var(--bg-primary)',
+                border: '1px solid var(--border-color)',
+                padding: '1.25rem'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.75rem' }}>
+                <Mail size={16} style={{ color: 'var(--accent-toxic)' }} />
+                <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', fontWeight: 800, margin: 0, textTransform: 'uppercase' }}>
+                  Official Email Channels
+                </h4>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem', fontSize: '0.8125rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '4px' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>General Support:</span>
+                  <a href="mailto:support@awsstudentbuilders.org" style={{ color: 'var(--accent-toxic)', textDecoration: 'none', fontFamily: 'var(--font-mono)' }}>
+                    support@awsstudentbuilders.org
+                  </a>
                 </div>
-
-                <div
-                  style={{
-                    backgroundColor: 'var(--bg-secondary)',
-                    border: '1px solid var(--border-color)',
-                    padding: '1rem',
-                    marginBottom: '1.25rem',
-                    fontSize: '0.8125rem',
-                    lineHeight: 1.6
-                  }}
-                >
-                  <div style={{ color: 'var(--text-muted)' }}>NAME: <strong style={{ color: 'var(--text-primary)' }}>{submittedInquiry.name}</strong></div>
-                  <div style={{ color: 'var(--text-muted)' }}>EMAIL: <strong style={{ color: 'var(--text-primary)' }}>{submittedInquiry.email}</strong></div>
-                  <div style={{ color: 'var(--text-muted)' }}>TOPIC: <strong style={{ color: 'var(--accent-toxic)' }}>{submittedInquiry.topic}</strong></div>
-                  <div style={{ color: 'var(--text-muted)', marginTop: '4px' }}>
-                    MESSAGE: <span style={{ color: 'var(--text-primary)' }}>"{submittedInquiry.message}"</span>
-                  </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '4px' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Campus Desk:</span>
+                  <a href="mailto:aws.community@rungta.ac.in" style={{ color: 'var(--accent-toxic)', textDecoration: 'none', fontFamily: 'var(--font-mono)' }}>
+                    aws.community@rungta.ac.in
+                  </a>
                 </div>
-
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.8125rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                  Your inquiry has been stored in the organizer's Master Inquiries Excel Sheet. A student coordinator will get back to you shortly.
-                </p>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <button
-                    type="button"
-                    onClick={handleResetForm}
-                    className="btn-noise-outline"
-                    style={{ width: '100%', padding: '0.75rem', fontSize: '0.75rem' }}
-                  >
-                    <RefreshCw size={14} />
-                    <span>SEND ANOTHER QUESTION</span>
-                  </button>
-
-                  <Link
-                    to="/"
-                    className="btn-noise-primary"
-                    style={{ width: '100%', padding: '0.75rem', fontSize: '0.75rem', textDecoration: 'none' }}
-                  >
-                    <span>RETURN TO HOME</span>
-                    <ArrowRight size={14} />
-                  </Link>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '4px' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Volunteer Team:</span>
+                  <a href="mailto:volunteers@awsstudentbuilders.org" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontFamily: 'var(--font-mono)' }}>
+                    volunteers@awsstudentbuilders.org
+                  </a>
                 </div>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: '1.25rem' }}>
-                  <label
-                    htmlFor="contactName"
-                    style={{
-                      display: 'block',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.75rem',
-                      textTransform: 'uppercase',
-                      marginBottom: '0.5rem',
-                      color: 'var(--text-primary)'
-                    }}
-                  >
-                    Your Name <span style={{ color: 'var(--accent-toxic)' }}>*</span>
-                  </label>
-                  <input
-                    id="contactName"
-                    type="text"
-                    required
-                    placeholder="e.g. Mukesh Kumar"
-                    value={contactForm.name}
-                    onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.875rem',
-                      backgroundColor: 'var(--bg-elevated)',
-                      border: '1px solid var(--border-strong)',
-                      color: 'var(--text-primary)',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
+            </div>
 
-                <div style={{ marginBottom: '1.25rem' }}>
-                  <label
-                    htmlFor="contactEmail"
-                    style={{
-                      display: 'block',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.75rem',
-                      textTransform: 'uppercase',
-                      marginBottom: '0.5rem',
-                      color: 'var(--text-primary)'
-                    }}
-                  >
-                    Email Address <span style={{ color: 'var(--accent-toxic)' }}>*</span>
-                  </label>
-                  <input
-                    id="contactEmail"
-                    type="email"
-                    required
-                    placeholder="Enter your email address"
-                    value={contactForm.email}
-                    onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.875rem',
-                      backgroundColor: 'var(--bg-elevated)',
-                      border: '1px solid var(--border-strong)',
-                      color: 'var(--text-primary)',
-                      outline: 'none'
-                    }}
-                  />
+            {/* Helpline Numbers Card */}
+            <div
+              style={{
+                backgroundColor: 'var(--bg-primary)',
+                border: '1px solid var(--border-color)',
+                padding: '1.25rem'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.75rem' }}>
+                <Phone size={16} style={{ color: 'var(--accent-toxic)' }} />
+                <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', fontWeight: 800, margin: 0, textTransform: 'uppercase' }}>
+                  Helpline & Support Desk
+                </h4>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem', fontSize: '0.8125rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '4px' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Campus Line:</span>
+                  <a href="tel:+917886666666" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
+                    +91 (0788) 666-6666
+                  </a>
                 </div>
-
-                <div style={{ marginBottom: '1.25rem' }}>
-                  <label
-                    htmlFor="contactTopic"
-                    style={{
-                      display: 'block',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.75rem',
-                      textTransform: 'uppercase',
-                      marginBottom: '0.5rem',
-                      color: 'var(--text-primary)'
-                    }}
-                  >
-                    Topic / Category
-                  </label>
-                  <select
-                    id="contactTopic"
-                    value={contactForm.topic}
-                    onChange={(e) => setContactForm({ ...contactForm, topic: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.875rem',
-                      backgroundColor: 'var(--bg-elevated)',
-                      border: '1px solid var(--border-strong)',
-                      color: 'var(--text-primary)',
-                      outline: 'none',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <option value="General Event Inquiry">General Event Inquiry</option>
-                    <option value="Workshop & Cloud Credentials">Workshop & Cloud Credentials</option>
-                    <option value="Transport & Campus Transit">Transport & Campus Transit</option>
-                    <option value="Student Badge & Check-in">Student Badge & Check-in</option>
-                    <option value="Campus Liaison & Volunteering">Campus Liaison & Volunteering</option>
-                  </select>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '4px' }}>
+                  <span style={{ color: 'var(--text-muted)' }}>Student Coordinator:</span>
+                  <a href="tel:+919876543210" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontFamily: 'var(--font-mono)' }}>
+                    +91 98765-43210
+                  </a>
                 </div>
-
-                <div style={{ marginBottom: '1.75rem' }}>
-                  <label
-                    htmlFor="contactMsg"
-                    style={{
-                      display: 'block',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.75rem',
-                      textTransform: 'uppercase',
-                      marginBottom: '0.5rem',
-                      color: 'var(--text-primary)'
-                    }}
-                  >
-                    Message / Question <span style={{ color: 'var(--accent-toxic)' }}>*</span>
-                  </label>
-                  <textarea
-                    id="contactMsg"
-                    rows={4}
-                    required
-                    placeholder="Question about campus lab, transport, credentials, or sessions..."
-                    value={contactForm.message}
-                    onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.875rem',
-                      backgroundColor: 'var(--bg-elevated)',
-                      border: '1px solid var(--border-strong)',
-                      color: 'var(--text-primary)',
-                      outline: 'none',
-                      resize: 'vertical'
-                    }}
-                  />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-dim)', fontSize: '0.75rem', marginTop: '2px', fontFamily: 'var(--font-mono)' }}>
+                  <Clock size={12} />
+                  <span>MON–SAT (09:00 AM – 06:00 PM IST)</span>
                 </div>
+              </div>
+            </div>
 
-                <button type="submit" className="btn-noise-primary" style={{ width: '100%' }}>
-                  <span>SEND INQUIRY TO ORGANIZERS</span>
-                  <Send size={15} />
-                </button>
-              </form>
-            )}
+            {/* Campus Coordination Team */}
+            <div
+              style={{
+                backgroundColor: 'var(--bg-primary)',
+                border: '1px solid var(--border-color)',
+                padding: '1.25rem'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.75rem' }}>
+                <UserCheck size={16} style={{ color: 'var(--accent-toxic)' }} />
+                <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', fontWeight: 800, margin: 0, textTransform: 'uppercase' }}>
+                  Campus Coordination Team
+                </h4>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem', fontSize: '0.8125rem' }}>
+                <div>
+                  <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>Student Community Lead</div>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>AWS Cloud Club Ambassador & Builder Lead</div>
+                </div>
+                <div style={{ borderTop: '1px dashed var(--border-color)', paddingTop: '0.5rem' }}>
+                  <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>Faculty Liaison Office</div>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>Department of Computer Science & Engineering, Rungta University</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Event Day Help Desk */}
+            <div
+              style={{
+                border: '1px dashed var(--accent-toxic)',
+                backgroundColor: 'var(--bg-tertiary)',
+                padding: '1.25rem'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem' }}>
+                <MessageSquare size={16} style={{ color: 'var(--accent-toxic)' }} />
+                <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', fontWeight: 800, margin: 0, color: 'var(--accent-toxic)' }}>
+                  EVENT DAY HELP DESK
+                </h4>
+              </div>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.8125rem', lineHeight: 1.5, margin: 0 }}>
+                On 18 OCT 2026, an in-person physical helpdesk will be active from 08:30 AM at the Main Auditorium Foyer, Rungta Educational Complex.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ========================================================
+            ABOUT & EVENT OVERVIEW DOSSIER
+            ======================================================== */}
+        <div
+          style={{
+            border: '1px solid var(--border-strong)',
+            backgroundColor: 'var(--bg-secondary)',
+            boxShadow: '6px 6px 0px 0px rgba(0, 0, 0, 0.4)',
+            padding: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+            marginTop: '1rem'
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '12px',
+              paddingBottom: '1.25rem',
+              borderBottom: '1px solid var(--border-color)',
+              marginBottom: '2rem'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Info size={18} style={{ color: 'var(--accent-toxic)' }} />
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8125rem', fontWeight: 800, letterSpacing: '0.08em', color: 'var(--accent-toxic)' }}>
+                EVENT DOSSIER // ABOUT THE COMMUNITY DAY
+              </span>
+            </div>
+            <span className="zine-tag">RUNGTA UNIVERSITY CAMPUS · BHILAI</span>
+          </div>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '1.5rem',
+              alignItems: 'stretch'
+            }}
+          >
+            {/* Mission & Philosophy */}
+            <div style={{ backgroundColor: 'var(--bg-primary)', border: '1px solid var(--border-color)', padding: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.75rem' }}>
+                <Terminal size={16} style={{ color: 'var(--accent-toxic)' }} />
+                <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem', fontWeight: 800, margin: 0 }}>
+                  EVENT MISSION
+                </h4>
+              </div>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>
+                {EVENT_INFO.philosophy}
+              </p>
+            </div>
+
+            {/* Hands-on Tracks */}
+            <div style={{ backgroundColor: 'var(--bg-primary)', border: '1px solid var(--border-color)', padding: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.75rem' }}>
+                <Cpu size={16} style={{ color: 'var(--accent-toxic)' }} />
+                <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem', fontWeight: 800, margin: 0 }}>
+                  WHAT WE BUILD
+                </h4>
+              </div>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>
+                4+ intensive hands-on sprint tracks covering AWS Amplify serverless hosting, Fullstack React & DynamoDB, Generative AI with AWS Bedrock, and live deployment workflows.
+              </p>
+            </div>
+
+            {/* Participation */}
+            <div style={{ backgroundColor: 'var(--bg-primary)', border: '1px solid var(--border-color)', padding: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.75rem' }}>
+                <Users size={16} style={{ color: 'var(--accent-toxic)' }} />
+                <h4 style={{ fontFamily: 'var(--font-mono)', fontSize: '0.875rem', fontWeight: 800, margin: 0 }}>
+                  STUDENT BUILDER NETWORK
+                </h4>
+              </div>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>
+                100+ passionate student developers, peer builders, and industry mentors coming together under one roof. Complimentary access, free cloud lab environment, and verified credentials.
+              </p>
+            </div>
           </div>
         </div>
       </div>

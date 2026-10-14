@@ -1,96 +1,28 @@
 /* ========================================================
-   RESPONSIVE DESIGN & MOBILE OPTIMIZATION SYSTEM
-   Engineered for: Mobile (320px - 480px), Phablets (481px - 768px),
-   Tablets (769px - 1024px), Desktop (1025px+)
+   RESPONSIVE DESIGN & BREAKPOINT UTILITIES
+   Tested for: 360px, 390px, 768px, 1024px, 1440px+
    ======================================================== */
 
-/* --------------------------------------------------------
-   1. GLOBAL MOBILE SAFETY & TOUCH STANDARDS
-   -------------------------------------------------------- */
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  -webkit-text-size-adjust: 100%;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-img, svg, video, canvas, audio, iframe, embed, object {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Ensure smooth horizontal scrolling containers for tables and chips */
-.table-responsive-wrapper,
-.excel-table-scroll-container {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* --------------------------------------------------------
-   2. TABLET & MOBILE BREAKPOINT (<= 1024px)
-   -------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .hero-layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
-  }
-
-  .about-layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
-  }
-
-  .registration-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
-  }
-}
-
-/* --------------------------------------------------------
-   3. MOBILE PHONES & PHABLETS (<= 768px)
-   -------------------------------------------------------- */
+/* Mobile view adjustments (<= 768px) */
 @media (max-width: 768px) {
   :root {
-    --section-pad-y: 3rem;
+    --section-pad-y: 3.5rem;
   }
 
-  /* Container padding for mobile thumbs */
-  .container {
-    padding-inline: 1rem !important;
-    max-width: 100% !important;
-  }
-
-  /* Typography scale down for small viewports */
+  /* Headings on mobile */
   h1, .hero-display-title {
-    font-size: clamp(2.4rem, 11vw, 3.8rem) !important;
+    font-size: clamp(2.5rem, 11vw, 4.5rem) !important;
     letter-spacing: -0.04em !important;
-    line-height: 0.95 !important;
-    word-break: break-word !important;
+    line-height: 0.9 !important;
   }
 
   h2, .section-heading-title {
-    font-size: clamp(1.8rem, 7.5vw, 2.6rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: -0.03em !important;
-    word-break: break-word !important;
+    font-size: clamp(2rem, 8vw, 3rem) !important;
   }
 
-  h3 {
-    font-size: clamp(1.15rem, 5vw, 1.5rem) !important;
-    word-break: break-word !important;
-  }
-
-  /* Section heading metadata bar */
-  .section-meta-header {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.5rem !important;
-    margin-bottom: 1.75rem !important;
-    padding-bottom: 0.75rem !important;
+  /* Grid adaptations */
+  .grid-2-col, .grid-3-col, .grid-4-col {
+    grid-template-columns: 1fr !important;
   }
 
   /* Navigation adjustments */
@@ -99,218 +31,87 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
 
   .mobile-menu-btn {
-    display: inline-flex !important;
+    display: flex !important;
   }
 
-  /* Hero Section Mobile Adaptation */
-  .hero-actions-container {
-    flex-direction: column !important;
-    width: 100% !important;
+  /* Schedule layout stacking */
+  .schedule-row-grid {
+    grid-template-columns: 1fr !important;
     gap: 0.75rem !important;
-    margin-bottom: 2rem !important;
   }
 
-  .hero-actions-container .btn-noise-primary,
-  .hero-actions-container .btn-noise-outline,
-  .hero-actions-container a,
-  .hero-actions-container button {
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 0.875rem 1.25rem !important;
-  }
-
-  /* Terminal responsiveness */
-  .terminal-box {
-    margin-top: 1.5rem !important;
-    width: 100% !important;
-    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.45) !important;
-  }
-
-  .terminal-box pre {
-    white-space: pre-wrap !important;
-    word-break: break-all !important;
-    overflow-x: auto !important;
-  }
-
-  /* Community Statistics Grid */
+  /* Stats grid */
   .stats-grid-container {
     grid-template-columns: 1fr 1fr !important;
   }
 
-  .stat-item-card {
-    padding: 1.25rem 1rem !important;
-    border-bottom: 1px solid var(--border-color) !important;
+  /* Terminal responsiveness */
+  .terminal-box {
+    margin-top: 2rem;
+    width: 100%;
   }
 
-  .stat-item-card:nth-child(2) {
-    border-right: none !important;
-  }
-
-  .stat-item-card:nth-child(3),
-  .stat-item-card:nth-child(4) {
-    border-bottom: none !important;
-  }
-
-  .stat-item-card:nth-child(4) {
-    border-right: none !important;
-  }
-
-  /* Grid adaptations */
-  .grid-2-col, .grid-3-col, .grid-4-col {
+  /* Form adjustments */
+  .registration-grid {
     grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 
-  /* Call to action banners */
-  .cta-banner-box {
-    box-shadow: 6px 6px 0px 0px var(--accent-toxic) !important;
-    padding: 2rem 1.25rem !important;
-  }
-
-  /* Form & Input Touch Standards (16px prevents iOS Safari auto-zoom) */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="tel"],
-  select,
-  textarea {
-    font-size: 16px !important;
-    min-height: 48px;
-    padding: 0.75rem 1rem !important;
-    width: 100% !important;
-  }
-
-  /* Mobile Toast */
+  /* Responsive Toast */
   .noise-toast {
     bottom: 1rem !important;
     right: 1rem !important;
     left: 1rem !important;
     width: auto !important;
     max-width: none !important;
-    padding: 0.875rem 1rem !important;
   }
 
-  /* Footer stacking */
-  footer .container > div:first-child {
-    flex-direction: column !important;
-    gap: 2rem !important;
-  }
-
-  footer .btn-noise-outline {
-    width: 100% !important;
-    justify-content: center !important;
-  }
-
-  /* Hide custom cursor on mobile touch */
+  /* Hide custom cursor on touch/mobile devices */
   .custom-cursor-element {
     display: none !important;
   }
 }
 
-/* --------------------------------------------------------
-   4. ULTRA-COMPACT MOBILE SCREENS (<= 420px)
-   -------------------------------------------------------- */
-@media (max-width: 420px) {
-  :root {
-    --section-pad-y: 2.5rem;
-  }
-
-  /* Container padding */
-  .container {
-    padding-inline: 0.875rem !important;
-  }
-
-  /* Brand mark slightly scaled for small screens */
-  .header-brand-tagline {
-    display: none !important;
-  }
-
-  /* Headings on extra small screens */
-  h1, .hero-display-title {
-    font-size: clamp(2.1rem, 10vw, 3.2rem) !important;
-  }
-
-  h2, .section-heading-title {
-    font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
-  }
-
-  /* Stats grid stacks to 1 column */
+/* Very small screens (<= 390px) */
+@media (max-width: 390px) {
   .stats-grid-container {
     grid-template-columns: 1fr !important;
   }
 
-  .stat-item-card {
-    border-right: none !important;
-    border-bottom: 1px solid var(--border-color) !important;
+  .btn-noise-primary, .btn-noise-outline {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
   }
 
-  .stat-item-card:last-child {
-    border-bottom: none !important;
+  .hero-actions-container {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Tablet view (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
   }
 
-  /* Buttons full width on compact screens */
-  .btn-noise-primary,
-  .btn-noise-outline {
-    width: 100% !important;
-    padding: 0.875rem 1rem !important;
-    font-size: 0.8125rem !important;
-    justify-content: center !important;
+  .stats-grid-container {
+    grid-template-columns: repeat(4, 1fr) !important;
   }
 
-  /* Login role tabs on small mobile */
-  .login-tab-grid {
+  .about-layout-grid {
     grid-template-columns: 1fr !important;
   }
 
-  /* Ticket metadata block on hero (Date, Time, Venue) */
-  .hero-ticket-grid {
+  .registration-grid {
     grid-template-columns: 1fr !important;
   }
-
-  /* About editorial photo frame */
-  .about-editorial-image div:first-child {
-    height: clamp(220px, 55vw, 320px) !important;
-  }
-
-  /* Login & Admin card shadows */
-  .login-card-container,
-  .admin-login-card {
-    padding: 1.25rem 1rem !important;
-    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.4) !important;
-  }
 }
 
-/* --------------------------------------------------------
-   5. EXCEL & DATA TABLES MOBILE TOUCH OPTIMIZATION
-   -------------------------------------------------------- */
-.excel-table-scroll-container::-webkit-scrollbar,
-.table-responsive-wrapper::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
-}
-
-.excel-table-scroll-container::-webkit-scrollbar-thumb,
-.table-responsive-wrapper::-webkit-scrollbar-thumb {
-  background: var(--border-strong, #30363d);
-  border-radius: 3px;
-}
-
-/* Floating/Help banner for mobile data tables */
-.mobile-scroll-hint {
-  display: none;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.6875rem;
-  color: var(--accent-toxic, #C7FF32);
-  background: var(--bg-secondary, #161b22);
-  padding: 6px 10px;
-  border: 1px solid var(--border-color, #30363d);
-  margin-bottom: 8px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-@media (max-width: 900px) {
-  .mobile-scroll-hint {
-    display: flex !important;
+/* Large screens (>= 1440px) */
+@media (min-width: 1440px) {
+  .hero-display-title {
+    font-size: 6.5rem !important;
   }
 }

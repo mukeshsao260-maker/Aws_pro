@@ -11,7 +11,7 @@ import {
 } from '../lib/registration';
 import { getAuthUser, logoutUser } from '../lib/auth';
 import { INTEREST_OPTIONS } from '../lib/data';
-import { Check, AlertCircle, Loader2, Send, CheckCircle2, Lock, ArrowRight, UserPlus } from 'lucide-react';
+import { Check, AlertCircle, Loader2, Send, CheckCircle2, ArrowRight, UserPlus } from 'lucide-react';
 
 interface RegistrationFormProps {
   onSuccess?: () => void;
@@ -726,7 +726,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
           </div>
         )}
 
-        {/* Organizer / Admin Info Note */}
+        {/* Privacy Note */}
         <div
           style={{
             marginTop: '1.5rem',
@@ -741,22 +741,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
           }}
         >
           <span>PRIVACY: DATA PROTECTED</span>
-          <Link
-            to="/login"
-            style={{
-              color: 'var(--text-muted)',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '4px',
-              textDecoration: 'none',
-              transition: 'color var(--transition-fast)'
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-toxic)')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
-          >
-            <Lock size={11} />
-            <span>ORGANIZER ACCESS</span>
-          </Link>
+          <span>LIMITED SEATS AVAILABLE</span>
         </div>
       </form>
       )}
