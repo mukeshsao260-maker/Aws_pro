@@ -1,56 +1,56 @@
 :root {
   /* ========================================================
-     BLACK + #AD5CFF PURPLE SYSTEM
+     BLACK + #84109D THEME SYSTEM (DARK MODE DEFAULT)
      ======================================================== */
   
-  /* Primary Purple Palette */
-  --color-primary: #AD5CFF;
-  --color-primary-light: #D9B8FF;
-  --color-primary-soft: #EBD9FF;
-  --color-primary-dark: #7A28D8;
-  --color-primary-deep: #3E1278;
-  --color-primary-transparent: rgba(173, 92, 255, 0.15);
-  --color-glow: rgba(173, 92, 255, 0.35);
+  /* Primary Purple Palette (#84109D) */
+  --color-primary: #84109D;
+  --color-primary-light: #B42DD2;
+  --color-primary-soft: #F1D4FA;
+  --color-primary-dark: #610B74;
+  --color-primary-deep: #3C0548;
+  --color-primary-transparent: rgba(132, 16, 157, 0.18);
+  --color-glow: rgba(132, 16, 157, 0.40);
 
   /* Black Backgrounds (Preserved Black Identity) */
   --color-background: #0B0B0B;
   --color-surface: #111111;
-  --color-surface-hover: #181126;
-  --color-border: #7A28D8;
+  --color-surface-hover: #180D1D;
+  --color-border: #84109D;
 
   /* Theme Backgrounds */
   --bg-primary: #0B0B0B;
-  --bg-secondary: #120A1E;
-  --bg-tertiary: #190F2A;
-  --bg-elevated: #201336;
+  --bg-secondary: #130B17;
+  --bg-tertiary: #1B0F21;
+  --bg-elevated: #24142B;
   
   /* Typography Text Colors */
-  --text-primary: #F3ECFF;
-  --text-muted: #A396B8;
-  --text-dim: #736588;
+  --text-primary: #FAF5FF;
+  --text-muted: #B3A1BA;
+  --text-dim: #7B6882;
   
   /* Borders */
-  --border-color: rgba(173, 92, 255, 0.22);
-  --border-strong: rgba(173, 92, 255, 0.45);
-  --border-light: rgba(173, 92, 255, 0.12);
+  --border-color: rgba(132, 16, 157, 0.28);
+  --border-strong: rgba(132, 16, 157, 0.55);
+  --border-light: rgba(132, 16, 157, 0.15);
   
-  /* Accents mapped strictly to #AD5CFF and its allowed shades */
-  --accent-toxic: #AD5CFF;
-  --accent-toxic-text: #000000;
-  --btn-primary-bg: #AD5CFF;
-  --btn-primary-text: #000000;
-  --btn-primary-hover-bg: #D9B8FF;
-  --btn-primary-hover-text: #000000;
+  /* Accents mapped to #84109D and its harmonized shades */
+  --accent-toxic: #84109D;
+  --accent-toxic-text: #FFFFFF;
+  --btn-primary-bg: #84109D;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover-bg: #B42DD2;
+  --btn-primary-hover-text: #FFFFFF;
 
-  --accent-red: #D9B8FF;
-  --accent-blue: #AD5CFF;
-  --accent-orange: #7A28D8;
-  --accent-lavender: #AD5CFF;
-  --accent-cyan: #D9B8FF;
+  --accent-red: #B42DD2;
+  --accent-blue: #84109D;
+  --accent-orange: #610B74;
+  --accent-lavender: #B42DD2;
+  --accent-cyan: #F1D4FA;
   
   /* Paper & Ink */
-  --paper: #120A1E;
-  --concrete: #3E1278;
+  --paper: #130B17;
+  --concrete: #3C0548;
   --ink: #000000;
 
   /* Typography Fonts */
@@ -62,7 +62,7 @@
   /* Container & Layout */
   --max-width: 1360px;
   --section-pad-y: clamp(4rem, 8vw, 8.5rem);
-  --grid-line-color: rgba(173, 92, 255, 0.12);
+  --grid-line-color: rgba(132, 16, 157, 0.15);
 
   /* Spacing Scale */
   --space-2xs: 4px;
@@ -80,41 +80,54 @@
   --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Theme Override (locked to the Black + #AD5CFF Purple identity) */
+/* ========================================================
+   ORIGINAL LIGHT THEME (RESTORED ON SWITCHING TO LIGHT)
+   NOISE DEPT. Paper / Ink System
+   ======================================================== */
 [data-theme="light"] {
-  --color-primary: #AD5CFF;
-  --color-primary-light: #D9B8FF;
-  --color-primary-soft: #EBD9FF;
-  --color-primary-dark: #7A28D8;
-  --color-primary-deep: #3E1278;
-  --color-primary-transparent: rgba(173, 92, 255, 0.18);
-  --color-glow: rgba(173, 92, 255, 0.35);
+  --color-primary: #111111;
+  --color-primary-light: #EC3D31;
+  --color-primary-soft: #F5F5F0;
+  --color-primary-dark: #8C897F;
+  --color-primary-deep: #55534D;
+  --color-primary-transparent: rgba(0, 0, 0, 0.08);
+  --color-glow: rgba(236, 61, 49, 0.35);
 
-  --bg-primary: #000000;
-  --bg-secondary: #0D0616;
-  --bg-tertiary: #160B24;
-  --bg-elevated: #1F1033;
+  --color-background: #E9E7E0;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #DFDCD4;
+  --color-border: #C7C5BF;
 
-  --text-primary: #FFFFFF;
-  --text-muted: #B8A8D0;
-  --text-dim: #84729E;
+  --bg-primary: #E9E7E0; /* Paper */
+  --bg-secondary: #DFDCD4;
+  --bg-tertiary: #D4D0C6;
+  --bg-elevated: #FFFFFF;
 
-  --border-color: rgba(173, 92, 255, 0.3);
-  --border-strong: #AD5CFF;
-  --border-light: rgba(173, 92, 255, 0.15);
+  --text-primary: #111111; /* Ink */
+  --text-muted: #55534D;
+  --text-dim: #7C7971;
 
-  --accent-toxic: #AD5CFF;
-  --accent-toxic-text: #000000;
-  --btn-primary-bg: #AD5CFF;
-  --btn-primary-text: #000000;
-  --btn-primary-hover-bg: #D9B8FF;
-  --btn-primary-hover-text: #000000;
+  --border-color: #C7C5BF; /* Concrete */
+  --border-strong: #8C897F;
+  --border-light: #D8D6CE;
 
-  --accent-red: #D9B8FF;
-  --accent-blue: #AD5CFF;
-  --accent-orange: #7A28D8;
-  --accent-lavender: #AD5CFF;
-  --accent-cyan: #D9B8FF;
+  /* Original Signal Red & Ink high contrast in Light Mode */
+  --accent-toxic: #EC3D31; /* Signal Red primary accent */
+  --accent-toxic-text: #FFFFFF;
+  --btn-primary-bg: #111111; /* Ink button */
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover-bg: #EC3D31; /* Signal Red hover */
+  --btn-primary-hover-text: #FFFFFF;
 
-  --grid-line-color: rgba(173, 92, 255, 0.15);
+  --accent-red: #EC3D31;
+  --accent-blue: #3155FF;
+  --accent-orange: #E04E1F;
+  --accent-lavender: #5B44D4;
+  --accent-cyan: #007D77;
+
+  --paper: #E9E7E0;
+  --concrete: #DFDCD4;
+  --ink: #111111;
+
+  --grid-line-color: rgba(0, 0, 0, 0.08);
 }

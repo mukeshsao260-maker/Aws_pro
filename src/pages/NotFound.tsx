@@ -21,7 +21,7 @@ export const NotFound: React.FC = () => {
           maxWidth: '720px',
           width: '100%',
           textAlign: 'center',
-          boxShadow: '10px 10px 0px 0px var(--color-primary-dark, #7A28D8)',
+          boxShadow: '10px 10px 0px 0px var(--accent-red)',
           position: 'relative'
         }}
       >
@@ -43,7 +43,7 @@ export const NotFound: React.FC = () => {
           }}
         >
           ROUTE<br />
-          <span style={{ color: 'var(--color-primary, #AD5CFF)' }}>VOID.</span>
+          <span style={{ color: 'var(--accent-red)' }}>VOID.</span>
         </h1>
 
         <p

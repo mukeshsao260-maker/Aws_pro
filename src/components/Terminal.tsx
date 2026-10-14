@@ -17,9 +17,9 @@ export const Terminal: React.FC = () => {
       className="terminal-box"
       style={{
         border: '1px solid var(--border-strong)',
-        backgroundColor: '#0B0B0B',
-        color: '#F3ECFF',
-        boxShadow: '8px 8px 0px 0px rgba(0, 0, 0, 0.65)',
+        backgroundColor: '#111111',
+        color: '#E8E6DF',
+        boxShadow: '8px 8px 0px 0px rgba(0, 0, 0, 0.45)',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -31,19 +31,19 @@ export const Terminal: React.FC = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '10px 14px',
-          borderBottom: '1px solid rgba(173, 92, 255, 0.2)',
-          backgroundColor: '#050308'
+          borderBottom: '1px solid #262626',
+          backgroundColor: '#0B0B0B'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ width: '9px', height: '9px', backgroundColor: '#3E1278', display: 'inline-block' }} />
-          <span style={{ width: '9px', height: '9px', backgroundColor: '#7A28D8', display: 'inline-block' }} />
-          <span style={{ width: '9px', height: '9px', backgroundColor: '#AD5CFF', display: 'inline-block' }} />
+          <span style={{ width: '9px', height: '9px', backgroundColor: 'var(--accent-red)', display: 'inline-block' }} />
+          <span style={{ width: '9px', height: '9px', backgroundColor: 'var(--accent-orange)', display: 'inline-block' }} />
+          <span style={{ width: '9px', height: '9px', backgroundColor: 'var(--color-primary, #84109D)', display: 'inline-block' }} />
           <span
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.6875rem',
-              color: '#A396B8',
+              color: '#888888',
               marginLeft: '8px',
               textTransform: 'uppercase',
               letterSpacing: '0.05em'
@@ -60,11 +60,11 @@ export const Terminal: React.FC = () => {
               fontFamily: 'var(--font-mono)',
               fontSize: '0.625rem',
               padding: '2px 7px',
-              backgroundColor: '#AD5CFF',
-              color: '#000000',
+              backgroundColor: 'var(--color-primary, #84109D)',
+              color: '#FFFFFF',
               fontWeight: 700,
               textTransform: 'uppercase',
-              border: '1px solid #AD5CFF'
+              border: '1px solid var(--color-primary, #84109D)'
             }}
           >
             ● LIVE PREVIEW
@@ -76,8 +76,8 @@ export const Terminal: React.FC = () => {
       <div
         style={{
           display: 'flex',
-          borderBottom: '1px solid rgba(173, 92, 255, 0.2)',
-          backgroundColor: '#120A1E',
+          borderBottom: '1px solid #262626',
+          backgroundColor: '#161616',
           fontFamily: 'var(--font-mono)',
           fontSize: '0.6875rem'
         }}
@@ -86,9 +86,9 @@ export const Terminal: React.FC = () => {
           onClick={() => setActiveTab('sh')}
           style={{
             padding: '7px 14px',
-            borderRight: '1px solid rgba(173, 92, 255, 0.2)',
-            backgroundColor: activeTab === 'sh' ? '#0B0B0B' : 'transparent',
-            color: activeTab === 'sh' ? '#AD5CFF' : '#A396B8',
+            borderRight: '1px solid #262626',
+            backgroundColor: activeTab === 'sh' ? '#111111' : 'transparent',
+            color: activeTab === 'sh' ? 'var(--color-primary-light, #B42DD2)' : '#888888',
             fontWeight: activeTab === 'sh' ? 'bold' : 'normal',
             display: 'flex',
             alignItems: 'center',
@@ -103,9 +103,9 @@ export const Terminal: React.FC = () => {
           onClick={() => setActiveTab('log')}
           style={{
             padding: '7px 14px',
-            borderRight: '1px solid rgba(173, 92, 255, 0.2)',
-            backgroundColor: activeTab === 'log' ? '#0B0B0B' : 'transparent',
-            color: activeTab === 'log' ? '#AD5CFF' : '#A396B8',
+            borderRight: '1px solid #262626',
+            backgroundColor: activeTab === 'log' ? '#111111' : 'transparent',
+            color: activeTab === 'log' ? 'var(--color-primary-light, #B42DD2)' : '#888888',
             fontWeight: activeTab === 'log' ? 'bold' : 'normal'
           }}
         >
@@ -116,8 +116,8 @@ export const Terminal: React.FC = () => {
           onClick={() => setActiveTab('json')}
           style={{
             padding: '7px 14px',
-            backgroundColor: activeTab === 'json' ? '#0B0B0B' : 'transparent',
-            color: activeTab === 'json' ? '#AD5CFF' : '#A396B8',
+            backgroundColor: activeTab === 'json' ? '#111111' : 'transparent',
+            color: activeTab === 'json' ? 'var(--color-primary-light, #B42DD2)' : '#888888',
             fontWeight: activeTab === 'json' ? 'bold' : 'normal'
           }}
         >
@@ -133,70 +133,70 @@ export const Terminal: React.FC = () => {
           fontSize: '0.8125rem',
           lineHeight: '1.65',
           minHeight: '220px',
-          backgroundColor: '#0B0B0B',
-          color: '#F3ECFF'
+          backgroundColor: '#111111',
+          color: '#E8E6DF'
         }}
       >
         {activeTab === 'sh' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <div>
-              <span style={{ color: '#AD5CFF', marginRight: '8px' }}>$</span>
+              <span style={{ color: 'var(--color-primary-light, #B42DD2)', marginRight: '8px' }}>$</span>
               <span>init </span>
               <strong style={{ color: '#FFFFFF' }}>student-builder</strong>
             </div>
 
             {runIndex >= 1 && (
               <div>
-                <span style={{ color: '#AD5CFF', marginRight: '8px' }}>$</span>
+                <span style={{ color: 'var(--color-primary-light, #B42DD2)', marginRight: '8px' }}>$</span>
                 <span>choose --track </span>
-                <span style={{ color: '#D9B8FF', fontWeight: 'bold' }}>cloud</span>
+                <span style={{ color: 'var(--color-primary-light, #B42DD2)', fontWeight: 'bold' }}>cloud</span>
               </div>
             )}
 
             {runIndex >= 2 && (
               <div>
-                <span style={{ color: '#AD5CFF', marginRight: '8px' }}>$</span>
+                <span style={{ color: 'var(--color-primary-light, #B42DD2)', marginRight: '8px' }}>$</span>
                 <span>deploy --idea </span>
-                <span style={{ color: '#D9B8FF' }}>"my-first-app"</span>
+                <span style={{ color: 'var(--color-primary-soft, #F1D4FA)' }}>"my-first-app"</span>
               </div>
             )}
 
             {runIndex >= 3 && (
               <div style={{ marginTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <div style={{ color: '#AD5CFF', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <div style={{ color: 'var(--color-primary-light, #B42DD2)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Check size={14} />
                   <span>environment ready</span>
                 </div>
-                <div style={{ color: '#AD5CFF', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <div style={{ color: 'var(--color-primary-light, #B42DD2)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Check size={14} />
                   <span>mentor connected</span>
                 </div>
                 <div style={{ color: '#FFFFFF', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span style={{ color: '#AD5CFF' }}><Check size={14} /></span>
-                  <span>builder mindset: <strong style={{ color: '#AD5CFF', textDecoration: 'underline' }}>ON</strong></span>
+                  <span style={{ color: 'var(--color-primary-light, #B42DD2)' }}><Check size={14} /></span>
+                  <span>builder mindset: <strong style={{ color: 'var(--color-primary-light, #B42DD2)', textDecoration: 'underline' }}>ON</strong></span>
                 </div>
               </div>
             )}
 
             <div style={{ marginTop: '0.5rem' }}>
-              <span style={{ color: '#AD5CFF' }}>▋</span>
+              <span style={{ color: 'var(--color-primary, #84109D)' }}>▋</span>
             </div>
           </div>
         )}
 
         {activeTab === 'log' && (
-          <div style={{ color: '#A396B8', fontSize: '0.75rem', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <div style={{ color: '#888888', fontSize: '0.75rem', display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <div>[10:00:00] AWS_SESSION_INITIALIZED: region=ap-south-1</div>
             <div>[10:00:02] WORKSHOP_CREDENTIALS_DISPENSED: count=100</div>
             <div>[10:00:05] CLUSTER_PROVISION: ok (latency: 12ms)</div>
             <div>[10:00:12] MENTOR_CHANNELS: synced (audio/screen)</div>
-            <div style={{ color: '#AD5CFF' }}>[10:00:15] READY: ALL SYSTEMS GO FOR HACKATHON PROTO</div>
+            <div style={{ color: 'var(--color-primary-light, #B42DD2)' }}>[10:00:15] READY: ALL SYSTEMS GO FOR HACKATHON PROTO</div>
           </div>
         )}
 
         {activeTab === 'json' && (
-          <pre style={{ margin: 0, color: '#D9B8FF', fontSize: '0.75rem' }}>
-{`{
+          <pre style={{ margin: 0, color: 'var(--color-primary-soft, #F1D4FA)', fontSize: '0.75rem' }}>
+            {`{
   "event": "AWS Student Builder Day",
   "campus": "Rungta University",
   "tracks": ["Cloud", "Web", "GenAI", "OpenSource"],
@@ -214,15 +214,15 @@ export const Terminal: React.FC = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '8px 14px',
-          borderTop: '1px solid rgba(173, 92, 255, 0.2)',
-          backgroundColor: '#050308',
+          borderTop: '1px solid #262626',
+          backgroundColor: '#0B0B0B',
           fontFamily: 'var(--font-mono)',
           fontSize: '0.6875rem',
-          color: '#A396B8'
+          color: '#888888'
         }}
       >
         <div style={{ display: 'flex', gap: '14px' }}>
-          <span style={{ color: '#AD5CFF' }}>01</span>
+          <span style={{ color: 'var(--color-primary-light, #B42DD2)' }}>01</span>
           <span>BUILD SESSION</span>
           <span>10:00 → 17:00</span>
         </div>
@@ -233,11 +233,11 @@ export const Terminal: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             gap: '5px',
-            color: '#F3ECFF',
+            color: '#E8E6DF',
             fontSize: '0.625rem',
             padding: '2px 7px',
-            border: '1px solid rgba(173, 92, 255, 0.3)',
-            backgroundColor: '#120A1E'
+            border: '1px solid #333333',
+            backgroundColor: '#1A1A1A'
           }}
           title="Re-run terminal commands"
         >
