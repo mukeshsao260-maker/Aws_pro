@@ -29,9 +29,7 @@ export const Header: React.FC = () => {
         position: 'sticky',
         top: 0,
         zIndex: 900,
-        backgroundColor: scrolled
-          ? theme === 'dark' ? 'rgba(11, 11, 11, 0.94)' : 'rgba(233, 231, 224, 0.96)'
-          : 'var(--bg-primary)',
+        backgroundColor: scrolled ? 'rgba(11, 11, 11, 0.94)' : 'var(--bg-primary)',
         backdropFilter: 'blur(16px)',
         borderBottom: '1px solid var(--border-color)',
         transition: 'background-color 0.2s ease, border-color 0.2s ease'
