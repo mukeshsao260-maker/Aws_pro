@@ -94,6 +94,7 @@ export const Header: React.FC = () => {
 
             {/* Brand text */}
             <div
+              className="brand-text-block"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.6875rem',
@@ -198,13 +199,16 @@ export const Header: React.FC = () => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
+          className="mobile-drawer-menu"
           style={{
             borderTop: '1px solid var(--border-color)',
             backgroundColor: 'var(--bg-primary)',
             padding: '1.5rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem'
+            gap: '1rem',
+            maxHeight: 'calc(100vh - 74px)',
+            overflowY: 'auto'
           }}
         >
           {NAV_LINKS.filter((l) => !l.isCta).map((link) => (

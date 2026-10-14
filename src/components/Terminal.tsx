@@ -26,6 +26,7 @@ export const Terminal: React.FC = () => {
     >
       {/* Terminal Header Bar */}
       <div
+        className="terminal-header-bar"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -74,6 +75,7 @@ export const Terminal: React.FC = () => {
 
       {/* Tabs */}
       <div
+        className="terminal-tabs-container"
         style={{
           display: 'flex',
           borderBottom: '1px solid #262626',
@@ -127,6 +129,7 @@ export const Terminal: React.FC = () => {
 
       {/* Terminal Content Body */}
       <div
+        className="terminal-content-body"
         style={{
           padding: '1.25rem 1.25rem',
           fontFamily: 'var(--font-mono)',
@@ -209,6 +212,7 @@ export const Terminal: React.FC = () => {
 
       {/* Terminal Footer Bar */}
       <div
+        className="terminal-footer-bar"
         style={{
           display: 'flex',
           alignItems: 'center',

@@ -1,28 +1,92 @@
 /* ========================================================
-   RESPONSIVE DESIGN & BREAKPOINT UTILITIES
-   Tested for: 360px, 390px, 768px, 1024px, 1440px+
+   RESPONSIVE DESIGN & MOBILE OPTIMIZATION SYSTEM
+   Tested thoroughly across:
+   - Extra Small Phones: 320px, 360px, 375px (iPhone SE, Galaxy Fold)
+   - Standard Phones: 390px, 412px, 430px (iPhone 12-16, Pixel, Samsung S)
+   - Phablets & Mini Tablets: 480px, 600px, 768px (iPad Mini portrait)
+   - Tablets & Small Laptops: 769px to 1024px
+   - Desktops & Wide screens: 1025px to 1440px+
    ======================================================== */
 
-/* Mobile view adjustments (<= 768px) */
+/* Viewport safety & anti-overflow */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========================================================
+   MOBILE PHONES & TABLETS (<= 768px)
+   ======================================================== */
 @media (max-width: 768px) {
   :root {
-    --section-pad-y: 3.5rem;
+    --section-pad-y: clamp(2.5rem, 6vw, 3.5rem);
+  }
+
+  .container {
+    padding-inline: clamp(1rem, 3.5vw, 1.5rem) !important;
   }
 
   /* Headings on mobile */
   h1, .hero-display-title {
-    font-size: clamp(2.5rem, 11vw, 4.5rem) !important;
+    font-size: clamp(2.2rem, 10vw, 3.6rem) !important;
     letter-spacing: -0.04em !important;
-    line-height: 0.9 !important;
+    line-height: 0.92 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
   }
 
   h2, .section-heading-title {
-    font-size: clamp(2rem, 8vw, 3rem) !important;
+    font-size: clamp(1.8rem, 7.5vw, 2.75rem) !important;
+    line-height: 1.05 !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
   }
 
-  /* Grid adaptations */
-  .grid-2-col, .grid-3-col, .grid-4-col {
+  /* Section Meta Headers */
+  .section-meta-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  /* Layout grids stacking */
+  .hero-layout-grid,
+  .about-layout-grid,
+  .registration-grid,
+  .grid-2-col,
+  .grid-3-col,
+  .grid-4-col,
+  .feature-cards-grid {
     grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Hero Actions on mobile */
+  .hero-actions-container {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.875rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .hero-actions-container .btn-noise-primary,
+  .hero-actions-container .btn-noise-outline {
+    width: 100% !important;
+    padding: 0.95rem 1.25rem !important;
+    font-size: 0.8125rem !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   /* Navigation adjustments */
@@ -34,27 +98,79 @@
     display: flex !important;
   }
 
-  /* Schedule layout stacking */
-  .schedule-row-grid {
-    grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+  /* Mobile Drawer */
+  .mobile-drawer-menu {
+    padding: 1.25rem !important;
+    max-height: calc(100vh - 74px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
-  /* Stats grid */
+  /* Stats grid - 2 columns on mobile */
   .stats-grid-container {
     grid-template-columns: 1fr 1fr !important;
   }
 
-  /* Terminal responsiveness */
-  .terminal-box {
-    margin-top: 2rem;
-    width: 100%;
+  .stat-item-card {
+    padding: 1.25rem 1rem !important;
   }
 
-  /* Form adjustments */
-  .registration-grid {
+  /* Schedule layout stacking */
+  .schedule-row-grid {
     grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+    gap: 0.75rem !important;
+    padding: 1.25rem 1rem !important;
+  }
+
+  /* Speakers profile cards */
+  .speakers-profile-grid .speaker-card-container {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    padding: 1.5rem !important;
+  }
+
+  /* Terminal responsiveness */
+  .terminal-box {
+    margin-top: 1.75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.45) !important;
+  }
+
+  .terminal-header-bar {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 8px 10px !important;
+  }
+
+  .terminal-tabs-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .terminal-tabs-container button {
+    padding: 7px 10px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .terminal-content-body {
+    padding: 1rem !important;
+    font-size: 0.75rem !important;
+    overflow-x: auto !important;
+  }
+
+  .terminal-footer-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 8px 10px !important;
+  }
+
+  /* Form & inputs */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents auto-zoom in mobile Safari */
+    width: 100% !important;
   }
 
   /* Responsive Toast */
@@ -64,6 +180,7 @@
     left: 1rem !important;
     width: auto !important;
     max-width: none !important;
+    padding: 0.875rem 1rem !important;
   }
 
   /* Hide custom cursor on touch/mobile devices */
@@ -72,24 +189,58 @@
   }
 }
 
-/* Very small screens (<= 390px) */
-@media (max-width: 390px) {
+/* ========================================================
+   SMALL TO EXTRA SMALL PHONES (<= 480px)
+   ======================================================== */
+@media (max-width: 480px) {
+  /* Brand lockup scaling in header */
+  .brand-text-block {
+    font-size: 0.6rem !important;
+  }
+
+  .brand-text-block strong {
+    font-size: 0.65rem !important;
+  }
+
+  /* Compact button styling */
+  .btn-noise-primary,
+  .btn-noise-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  /* Gallery card schematic */
+  .gallery-horizontal-section {
+    padding-bottom: 1rem;
+  }
+}
+
+/* ========================================================
+   ULTRA COMPACT PHONES (<= 380px — iPhone SE, Galaxy Fold)
+   ======================================================== */
+@media (max-width: 380px) {
+  .container {
+    padding-inline: 0.75rem !important;
+  }
+
   .stats-grid-container {
     grid-template-columns: 1fr !important;
   }
 
-  .btn-noise-primary, .btn-noise-outline {
-    width: 100%;
-    padding: 0.875rem 1.25rem;
+  h1, .hero-display-title {
+    font-size: clamp(1.9rem, 9.5vw, 2.5rem) !important;
   }
 
-  .hero-actions-container {
-    flex-direction: column;
-    width: 100%;
+  h2, .section-heading-title {
+    font-size: clamp(1.5rem, 7vw, 2.1rem) !important;
   }
 }
 
-/* Tablet view (769px to 1024px) */
+/* ========================================================
+   TABLET VIEW (769px to 1024px)
+   ======================================================== */
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero-layout-grid {
     grid-template-columns: 1fr !important;
@@ -97,7 +248,7 @@
   }
 
   .stats-grid-container {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   .about-layout-grid {
@@ -109,7 +260,9 @@
   }
 }
 
-/* Large screens (>= 1440px) */
+/* ========================================================
+   LARGE DESKTOPS (>= 1440px)
+   ======================================================== */
 @media (min-width: 1440px) {
   .hero-display-title {
     font-size: 6.5rem !important;
