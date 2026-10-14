@@ -1,28 +1,28 @@
 :root{
-  --bg:#050b12;
-  --bg2:#07111b;
-  --panel:#091722;
-  --panel2:#0b1a27;
+  --bg:#000000;
+  --bg2:#0B0B0B;
+  --panel:#120A1E;
+  --panel2:#190F2A;
 
-  --text:#f5f8fb;
-  --muted:#93a4b4;
-  --muted2:#607486;
+  --text:#F3ECFF;
+  --muted:#A396B8;
+  --muted2:#736588;
 
-  --line:#1b2d3e;
+  --line:rgba(173, 92, 255, 0.22);
 
-  --blue:#63c8ff;
-  --blue2:#087fbe;
+  --blue:#AD5CFF;
+  --blue2:#7A28D8;
 
-  --green:#5ee0a2;
-  --orange:#ffbd61;
-  --danger:#ff8585;
+  --green:#AD5CFF;
+  --orange:#D9B8FF;
+  --danger:#EBD9FF;
 
   --max:1160px;
 
   --radius:16px;
 
   --shadow:
-    0 28px 80px rgba(0,0,0,.38);
+    0 28px 80px rgba(0,0,0,.6);
 }
 
 *{
@@ -106,8 +106,8 @@ a{
   background:
     linear-gradient(
       90deg,
-      var(--blue),
-      #b9eaff
+      #7A28D8,
+      #AD5CFF
     );
 
   z-index:1000;
@@ -125,11 +125,11 @@ a{
   z-index:90;
 
   background:
-    rgba(5,11,18,.78);
+    rgba(11,11,11,.92);
 
   border-bottom:
     1px solid
-    rgba(99,200,255,.09);
+    rgba(173,92,255,.18);
 
   backdrop-filter:
     blur(18px);

@@ -55,8 +55,8 @@ export const Footer: React.FC = () => {
                   height: '38px',
                   padding: '2px 4px',
                   backgroundColor: '#ffffff',
-                  border: '1.5px solid var(--border-strong)',
-                  boxShadow: '2px 2px 0px 0px var(--border-strong)',
+                  border: '1.5px solid var(--color-primary, #AD5CFF)',
+                  boxShadow: '2px 2px 0px 0px var(--color-primary-dark, #7A28D8)',
                   overflow: 'hidden',
                   flexShrink: 0
                 }}

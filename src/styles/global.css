@@ -2,7 +2,7 @@
 @import './animations.css';
 
 /* ========================================================
-   GLOBAL BASE & RESET
+   GLOBAL BASE & RESET — BLACK + #AD5CFF THEME
    ======================================================== */
 
 *, *::before, *::after {
@@ -31,21 +31,26 @@ body {
   position: relative;
 }
 
-/* Subtle Film Grain / Zine Noise Texture */
+::selection {
+  background-color: var(--color-primary, #AD5CFF);
+  color: #000000;
+}
+
+/* Subtle Film Grain / Purple Noise Texture */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  background-image: radial-gradient(rgba(173, 92, 255, 0.12) 1px, transparent 0);
   background-size: 4px 4px;
   opacity: 0.15;
 }
 
 [data-theme="light"] body::before {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 0);
-  opacity: 0.18;
+  background-image: radial-gradient(rgba(173, 92, 255, 0.16) 1px, transparent 0);
+  opacity: 0.16;
 }
 
 /* Base Links & Buttons */
@@ -67,15 +72,22 @@ input, select, textarea {
   font-family: var(--font-body);
   background-color: var(--bg-elevated);
   color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
-[data-theme="light"] input::placeholder,
-[data-theme="light"] textarea::placeholder {
-  color: #7C7971;
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-primary, #AD5CFF);
+  box-shadow: 0 0 0 2px rgba(173, 92, 255, 0.25);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-dim);
 }
 
 /* ========================================================
-   NOISE DEPT. TYPOGRAPHY HIERARCHY
+   TYPOGRAPHY HIERARCHY
    ======================================================== */
 
 h1, h2, h3, h4, .font-display {
@@ -129,7 +141,7 @@ h1, h2, h3, h4, .font-display {
   position: absolute;
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--color-primary-dark, #7A28D8);
   pointer-events: none;
 }
 
@@ -149,23 +161,23 @@ h1, h2, h3, h4, .font-display {
 }
 
 .zine-tag-toxic {
-  background: var(--accent-toxic);
-  color: var(--accent-toxic-text, #0B0B0B);
-  border-color: var(--accent-toxic);
+  background: var(--color-primary, #AD5CFF);
+  color: #000000;
+  border-color: var(--color-primary, #AD5CFF);
   font-weight: 700;
 }
 
 .zine-tag-red {
-  background: var(--accent-red);
+  background: var(--color-primary-dark, #7A28D8);
   color: #FFFFFF;
-  border-color: var(--accent-red);
+  border-color: var(--color-primary, #AD5CFF);
   font-weight: 700;
 }
 
 .zine-tag-blue {
-  background: var(--accent-blue);
-  color: #FFFFFF;
-  border-color: var(--accent-blue);
+  background: var(--color-primary-deep, #3E1278);
+  color: var(--color-primary-soft, #EBD9FF);
+  border-color: var(--color-primary-dark, #7A28D8);
   font-weight: 700;
 }
 
@@ -188,11 +200,11 @@ h1, h2, h3, h4, .font-display {
 
 .section-num {
   font-family: var(--font-mono);
-  color: var(--accent-toxic);
+  color: var(--color-primary, #AD5CFF);
   font-weight: 700;
 }
 
-/* NOISE DEPT. Buttons */
+/* BUTTONS — BLACK + PURPLE INTERACTION SYSTEM */
 .btn-noise-primary {
   display: inline-flex;
   align-items: center;
@@ -204,9 +216,9 @@ h1, h2, h3, h4, .font-display {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 1rem 1.75rem;
-  background-color: var(--btn-primary-bg, var(--accent-toxic));
-  color: var(--btn-primary-text, #0B0B0B);
-  border: 1px solid var(--btn-primary-bg, var(--accent-toxic));
+  background-color: var(--color-primary, #AD5CFF);
+  color: #000000;
+  border: 1px solid var(--color-primary, #AD5CFF);
   position: relative;
   transition: all var(--transition-fast);
   cursor: pointer;
@@ -214,11 +226,11 @@ h1, h2, h3, h4, .font-display {
 }
 
 .btn-noise-primary:hover {
-  background-color: var(--btn-primary-hover-bg, #FFFFFF);
-  border-color: var(--btn-primary-hover-bg, #FFFFFF);
-  color: var(--btn-primary-hover-text, #0B0B0B);
+  background-color: var(--color-primary-light, #D9B8FF);
+  border-color: var(--color-primary-light, #D9B8FF);
+  color: #000000;
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0px 0px var(--accent-red);
+  box-shadow: 4px 4px 0px 0px var(--color-primary-dark, #7A28D8);
 }
 
 .btn-noise-outline {
@@ -232,9 +244,9 @@ h1, h2, h3, h4, .font-display {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 1rem 1.75rem;
-  background-color: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-strong);
+  background-color: #000000;
+  color: var(--color-primary, #AD5CFF);
+  border: 1px solid var(--color-primary, #AD5CFF);
   position: relative;
   transition: all var(--transition-fast);
   cursor: pointer;
@@ -242,10 +254,11 @@ h1, h2, h3, h4, .font-display {
 }
 
 .btn-noise-outline:hover {
-  border-color: var(--text-primary);
-  background-color: var(--bg-elevated);
+  border-color: var(--color-primary-light, #D9B8FF);
+  background-color: var(--color-primary-transparent, rgba(173, 92, 255, 0.15));
+  color: var(--color-primary-light, #D9B8FF);
   transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0px 0px var(--text-primary);
+  box-shadow: 4px 4px 0px 0px var(--color-primary, #AD5CFF);
 }
 
 /* Toast Notification */
@@ -259,8 +272,8 @@ h1, h2, h3, h4, .font-display {
   padding: 1rem 1.25rem;
   background: var(--bg-secondary);
   border: 1px solid var(--border-strong);
-  border-left: 5px solid var(--accent-toxic);
-  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.4);
+  border-left: 5px solid var(--color-primary, #AD5CFF);
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: flex-start;
   gap: 1rem;
@@ -271,11 +284,11 @@ h1, h2, h3, h4, .font-display {
 }
 
 .noise-toast.toast-error {
-  border-left-color: var(--accent-red);
+  border-left-color: var(--color-primary-light, #D9B8FF);
 }
 
 .noise-toast.toast-success {
-  border-left-color: var(--accent-toxic);
+  border-left-color: var(--color-primary, #AD5CFF);
 }
 
 /* Scrollbar Customization */
@@ -289,9 +302,10 @@ h1, h2, h3, h4, .font-display {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
+  background: var(--color-primary-deep, #3E1278);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--color-primary, #AD5CFF);
 }
